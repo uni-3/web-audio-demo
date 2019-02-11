@@ -7,7 +7,8 @@
     </section>
 </template>
 
-<script>
+<script lang="ts">
+import { Subject } from 'rxjs'
 import {
   filter,
   bufferWhen,
@@ -15,25 +16,32 @@ import {
   map,
   startWith,
 } from 'rxjs/operators'
-export default {
-  domStreams: ['count$'],
+import { Component, Vue } from 'vue-property-decorator'
+
+//export default {
+@Component<RxExample>({
   subscriptions() {
-    return {
+    //this.count$ = new Subject()
+    return ({
       result$: this.count$.pipe(
         filter( (event) => !!event),
-        bufferWhen(() => this.count$.pipe(debounceTime(400))),
-        map( (clicks) => {
+        bufferWhen(() => this.count$.pipe(debounceTime(400))), // イベントをまとめる
+        map( (clicks: Array<string>) => {
           return clicks.length
         }),
         startWith(0),
       ),
-    }
+    })
   },
   methods: {
     clearCounter() {
-      this.count$.next(null)
+      this.count$.next(undefined)
     },
-  },
+  }
+})
+
+export default class RxExample extends Vue {
+  count$: Subject<string> = new Subject()
 }
 </script>
 
