@@ -4,6 +4,7 @@ module.exports= {
   },
   //set for github pages
   publicPath: process.env.NODE_ENV === 'production'
-  ? '/web-audio-demo/dist/'
-  : '/'
+  ? '/web-audio-demo/'
+  : '/',
+  outputDir: './docs',
 }

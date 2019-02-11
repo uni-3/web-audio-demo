@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b30ef5371bea44e300a106356813769d.js"
+  "/web-audio-demo/dist/precache-manifest.d86602760292be606d1a9feafca676e1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "web-audio"});
