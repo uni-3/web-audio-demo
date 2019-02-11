@@ -3,5 +3,7 @@ module.exports= {
     disableHostCheck: true
   },
   outputDir: './docs',
-  assetsDir: './'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/web-audio-demo/'
+  : '/'
 }
