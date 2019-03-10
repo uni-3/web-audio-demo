@@ -1,9 +1,7 @@
-module.exports= {
+module.exports = {
   devServer: {
     disableHostCheck: true
   },
-  outputDir: './docs',
-  publicPath: process.env.NODE_ENV === 'production'
-  ? '/web-audio-demo/'
-  : '/'
-}
+  outputDir: "./dist",
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/"
+};
